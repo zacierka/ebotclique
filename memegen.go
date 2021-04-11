@@ -11,3 +11,15 @@ package main
 //
 // ----------------------------------------------------------------------------
 */
+
+/*
+//  Method: GenerateMeme
+//
+//  PURPOSE: Generate Meme image, store meme image (path - db and local file)
+//	         Usage: .mark add <text> if image is supplied this method will be called.
+//
+//  ARGS: image text, image
+*/
+func GenerateMeme() string {
+	return ""
+}
