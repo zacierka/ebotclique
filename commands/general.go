@@ -69,6 +69,8 @@ func HandlePingCommand(s *discordgo.Session, m *discordgo.Message) {
 //        list       view all quotes
 */
 func HandleMarkCommand(s *discordgo.Session, m *discordgo.Message) {
+	// @TODO: Implement function
+	// parse mode: create, remove, list
 	mode := strings.Split(m.Content, " ")
 	if len(mode) == 1 {
 		randomMarkQuote(s, m)
@@ -101,6 +103,7 @@ func newMarkQuote(s *discordgo.Session, m *discordgo.Message) {
 		s.ChannelMessageSend(m.ChannelID, "Error creating quote. Try again.")
 		log.Println("[Error] newMarkQuote()::Could not add Quote @", m.Author.Username)
 	}
+	// handle duplicate
 	db.Close()
 }
 
@@ -121,10 +124,11 @@ func randomMarkQuote(s *discordgo.Session, m *discordgo.Message) {
 }
 
 func listMarkQuote(s *discordgo.Session, m *discordgo.Message) {
+	// @TODO: Implement
 	var quotes bytes.Buffer
 	quotes.WriteString("```")
 	db := database.Connect()
-	results, err := db.Query("SELECT quote from switch_db.ebotclique_markquotes_t ORDER BY quote ASC")
+	results, err := db.Query("SELECT `quote` from switch_db.ebotclique_markquotes_t ORDER BY quote ASC")
 	if err != nil {
 		log.Println("Error ... Cannot recall quotes")
 		return
@@ -132,10 +136,12 @@ func listMarkQuote(s *discordgo.Session, m *discordgo.Message) {
 	counter := 1
 	for results.Next() {
 		var quote string
+		// for each row, scan the result into our tag composite object
 		err = results.Scan(&quote)
 		if err != nil {
-			panic(err.Error())
+			panic(err.Error()) // proper error handling instead of panic in your app
 		}
+		// and then print out the tag's Name attribute
 		quotes.WriteString(strconv.Itoa(counter))
 		quotes.WriteString(". ")
 		quotes.WriteString(quote)
