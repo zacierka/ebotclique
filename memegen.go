@@ -23,3 +23,16 @@ package main
 func GenerateMeme() string {
 	return ""
 }
+
+/* NOTES
+
+api: https://imgflip.com/api
+
+use this to combine text with image and get back the data to store in db the path and local file of the image.
+
+changes needed:
+  database reformat - id, text, (optional) image path
+  randomMarkQuote - revise so that if there is an image supplied show that over the text
+  listMarkQuote - revise so that only text is shown if there is any. otherwise dont list.
+  others... need to look into cases
+*/
