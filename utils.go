@@ -17,6 +17,12 @@ import (
 	"github.com/bwmarrin/discordgo"
 )
 
+/*
+//  METHOD: SetStatus
+//
+//  PURPOSE: Change bots status through supplied title
+//
+*/
 func SetStatus(s *discordgo.Session, n string) {
 	err := s.UpdateStatusComplex(discordgo.UpdateStatusData{
 		IdleSince: nil,

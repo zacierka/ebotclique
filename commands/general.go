@@ -86,6 +86,13 @@ func HandleMarkCommand(s *discordgo.Session, m *discordgo.Message) {
 	}
 }
 
+/*
+//  METHOD: newMarkQuote
+//
+//  PURPOSE: Add a new Quote
+//
+//  ARGS: Session, Message
+*/
 func newMarkQuote(s *discordgo.Session, m *discordgo.Message) {
 	// create quote
 	var id sql.NullInt64
@@ -111,6 +118,13 @@ func newMarkQuote(s *discordgo.Session, m *discordgo.Message) {
 // 	// @TODO placeholder... find a intuitive way to remove (list #? exact? )
 // }
 
+/*
+//  METHOD: randomMarkQuote
+//
+//  PURPOSE: Retrieve Mark quote
+//
+//  ARGS: Session, Message
+*/
 func randomMarkQuote(s *discordgo.Session, m *discordgo.Message) {
 	var quote string
 	db := database.Connect()
@@ -123,8 +137,14 @@ func randomMarkQuote(s *discordgo.Session, m *discordgo.Message) {
 	db.Close()
 }
 
+/*@TODO revise after implementing image formats
+//  METHOD: listMarkQuote
+//
+//  PURPOSE: list all supplied quotes text only
+//
+//  ARGS: Session, Message
+*/
 func listMarkQuote(s *discordgo.Session, m *discordgo.Message) {
-	// @TODO: Implement
 	var quotes bytes.Buffer
 	quotes.WriteString("```")
 	db := database.Connect()
