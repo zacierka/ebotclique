@@ -1,7 +1,7 @@
 # EBotClique Discord Bot
 This project is a bot for "my" personal discord. It ties in various aspects of the discord with other assets. This bot has many modules which may communicate with our minecraft server, retrieve analytics for various games, general fun commands, and more. This bot is a work in progress and will be maintained as best as possible.
 
-This Project be forked and edited. Just know that setup process may not be streamlined in the beginning stages as many things will change.
+This Project can be forked and edited. Just know that setup process may not be streamlined in the beginning stages as many things will change.
 
 ## Frameworks/Technologies
 EBotClique Bot is centered around a few technologies which enable it to communicate with other assets.
