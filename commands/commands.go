@@ -21,22 +21,15 @@ import (
 
 //ExecuteCommand Parses and executes the command from the calling code
 func ExecuteCommand(s *discordgo.Session, m *discordgo.Message, t0 time.Time) {
+	rawcmd := strings.TrimSpace(m.Content)
+	temp := strings.Split(rawcmd, " ")
+	args := temp[1:]
 
-	msg := strings.Split(strings.TrimSpace(m.Content), ".")[1]
-
-	if len(msg) > 2 {
-		msg = strings.Split(strings.Split(m.Content, " ")[0], ".")[1]
-	}
-
-	switch msg {
-	case "info":
-		HandleInfoCommand(s, m, t0)
-	case "ping":
-		HandlePingCommand(s, m)
-	case "mark":
-		HandleMarkCommand(s, m)
-	default:
-		//HandleUnknownCommand(s, m, msg) // sends message to users DM of invalid message
+	switch name := strings.Split(temp[0], ".")[1]; name {
+	case "switch", "cloak", "jack", "lit", "mark", "burnout":
+		HandleQuoteCommand(s, m, name, args)
+	case "uptime":
+		HandleInfoCommand(s, m, time.Now())
 	}
 }
 
