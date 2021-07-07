@@ -16,10 +16,9 @@ EBotClique Bot is centered around a few technologies which enable it to communic
 \* := Requires Authorized Role
 |  Module   |  Command  |     Description    |            Usage             | ✅❌ |
 | --------- | --------- | ------------------ | ---------------------------- | ------ |
-|  common   | quote     | Quote from a user  | .quote add:rm:list \[user\]  | ✅    |
+|  common   | quote     | Quote from a user  | .user (add) \[user\]         | ✅    |
 |  common   | info      | Channel and Uptime | .info                        | ✅    |
 |  common   | ping      | Reply Ping         | .ping                        | ✅    |
-|  common   | img       | Image Post of user | .img add:rm:list \[user\]    | ❌    |
 | minecraft | online    | Users Online list  | .online                      | ❌    |
 | minecraft | mcstatus  | Server Status      | .mcstatus                    | ❌    |
 | minecraft | mcreboot* | Reboot Server      | .mcreboot                    | ❌    |
