@@ -28,7 +28,7 @@ import (
 )
 
 var (
-	Token = DEV_KEY
+	Token string
 	BotID string
 )
 
@@ -37,8 +37,12 @@ var t0 time.Time
 
 func init() {
 
-	//flag.StringVar(&Token, "t", "", "Bot Token")
-	//flag.Parse()
+	tkn, ok := os.LookupEnv("BOTTOKEN")
+	if ok {
+		Token = tkn
+	} else {
+		panic(1)
+	}
 }
 func main() {
 
@@ -67,7 +71,7 @@ func main() {
 
 	dg.AddHandler(messageCreate)
 
-	SetStatus(dg, DEFAULT_STATUS)
+	//SetStatus(dg, DEFAULT_STATUS)
 
 	err = dg.Open()
 	if err != nil {
@@ -99,7 +103,7 @@ func messageCreate(s *discordgo.Session, m *discordgo.MessageCreate) {
 		return
 	}
 
-	if m.Content[0] == PREFIX && strings.Count(m.Content, string(PREFIX)) < 2 {
+	if m.Content[0] == '.' && strings.Count(m.Content, ".") < 2 {
 
 		commands.ExecuteCommand(s, m.Message, t0)
 		return
