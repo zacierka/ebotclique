@@ -16,7 +16,7 @@ EBotClique Bot is centered around a few technologies which enable it to communic
 \* := Requires Authorized Role
 |  Module   |  Command  |     Description    |            Usage             | ✅❌ |
 | --------- | --------- | ------------------ | ---------------------------- | ------ |
-|  common   | quote     | Quote from a user  | .user (add) \[user\]         | ✅    |
+|  common   | quote     | Quote from a user  | .user (add) \[quote\]        | ✅    |
 |  common   | info      | Channel and Uptime | .info                        | ✅    |
 |  common   | ping      | Reply Ping         | .ping                        | ✅    |
 | minecraft | online    | Users Online list  | .online                      | ❌    |
